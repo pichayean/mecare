@@ -4,6 +4,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Navbar from "../../components/Navbar.jsx";
 import AvatarGroup from "../../components/AvatarGroup.jsx";
 
+import Datepicker from "react-tailwindcss-datepicker"; 
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 
 const posts = [
@@ -124,6 +125,16 @@ const posts = [
 ];
 
 export default function Search() {
+  const [value, setValue] = useState({ 
+  startDate: new Date(), 
+  endDate: new Date().setMonth(11) 
+  }); 
+  
+  const handleValueChange = (newValue) => {
+  console.log("newValue:", newValue); 
+  setValue(newValue); 
+  } 
+  
   return (
     <>
       <Navbar />
@@ -138,6 +149,7 @@ export default function Search() {
               สะดวกให้บริการในพื้นที่นั้นๆได้อย่างง่ายดาย
             </p>
           </div>
+
 
           <form className="md:mt-8">
             <label
@@ -178,7 +190,21 @@ export default function Search() {
                 Search
               </button>
             </div>
+
           </form>
+
+
+            
+          <Datepicker 
+            className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            primaryColor={"blue"} 
+            value={value} 
+            onChange={handleValueChange} 
+            showShortcuts={true} 
+            /> 
+
+
+
 
           <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {posts.map((post) => (
@@ -264,6 +290,12 @@ export default function Search() {
               </article>
             ))}
           </div>
+        
+        
+        
+        
+        
+        
         </div>
       </div>
     </>

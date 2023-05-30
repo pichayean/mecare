@@ -1,19 +1,24 @@
 # base image
-FROM --platform=linux/amd64 node:18.4.0
+# FROM --platform=linux/amd64 node:18.4.0
 
-# set working directory
-RUN mkdir /usr/src/app
+# Build Stage 1
+# This build created a staging docker image
+#
+FROM node:18.4.0 AS appbuild
 WORKDIR /usr/src/app
-COPY . /usr/src/app/
-
-# add `/usr/src/app/node_modules/.bin` to $PATH
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
-
-# install and cache app dependencies
-COPY package.json /usr/src/app/package.json
+COPY package.json ./
+# COPY .babelrc ./
 RUN npm install
-RUN npm install react-scripts -g
+COPY . .
+RUN npm run build
 
-EXPOSE 5173
-# start app
-CMD [ "npm", "run", "dev", "--", "--host"]
+# Build Stage 2
+# This build takes the production build from staging build
+#
+
+# Pull base image
+FROM ubuntu as deploy
+RUN apt-get update && apt-get install nginx -y
+COPY --from=appbuild /usr/src/app/dist /var/www/html/
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

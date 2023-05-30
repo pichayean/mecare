@@ -4,9 +4,11 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 
 const navigation = [
+  { name: "Home", href: "/home" },
   { name: "Service", href: "/service" },
-  { name: "Contact", href: "/contact" },
   { name: "Review", href: "/review" },
+  { name: "ค้นหา", href: "/search" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Home() {
