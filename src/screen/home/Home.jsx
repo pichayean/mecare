@@ -22,14 +22,14 @@ export default function Home() {
           aria-label="Global"
         >
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
+            <Link to="/home" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img
                 className="h-8 w-auto"
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                 alt=""
               />
-            </a>
+            </Link>
           </div>
           <div className="flex lg:hidden">
             <button
@@ -54,10 +54,10 @@ export default function Home() {
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link
-              to="/search"
+              to="/login"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
-              Search <span aria-hidden="true">&rarr;</span>
+              ร่วมงานกับเรา <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
         </nav>
