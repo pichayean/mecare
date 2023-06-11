@@ -1,7 +1,15 @@
-import { Routes, Route, Outlet, Link } from "react-router-dom";
-import { useRef, useState } from "react";
+import { Routes, Route, Outlet, Link, useNavigate } from "react-router-dom";
+import { useRef, useState, useEffect } from "react";
 import { login, validateOtp } from "../../apis/securities-api.js";
 export default function Login() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const isAuth = !!localStorage.getItem("mecare-auth");
+    console.log(isAuth);
+    if (isAuth) {
+      navigate("/staffdetailcreate");
+    }
+  }, []);
   const emailRef = useRef();
   const otpRef = useRef();
   const [email, setEmail] = useState("");
@@ -27,7 +35,8 @@ export default function Login() {
     if (otp === "") alert("please input otp.");
     validateOtp(email, ref, otp, true).then((data) => {
       console.log(data);
-      alert(data);
+      localStorage.setItem("mecare-auth", JSON.stringify(data));
+      navigate("/staffdetailcreate");
       // [Log] {accessToken: "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6I…yw8Bx1wATWfBWRu1FS-N2o_SRfrRNRXC6LoAY00fUE0V_3x8A", refreshToken: "adUnPmFNxF4x0O1b9LUIOQftFWbqVXkrq7Z4+x6dK2vBDwIfdE+I+mmSy68ICLNQF0h5ejsRbYbkx1aq4Y8Ojg==", refId: "x4d9cgSmghu4T/k9A0OiVg=="} (Login.jsx, line 44)
     });
   };
