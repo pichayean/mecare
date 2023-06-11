@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
-
+import { getall } from "../../apis/tmopportunity-api.js";
 const navigation = [
   { name: "Home", href: "/home" },
   { name: "Service", href: "/service" },
@@ -13,7 +13,11 @@ const navigation = [
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  useEffect(() => {
+    getall().then((data) => {
+      console.log(data);
+    });
+  }, []);
   return (
     <div className="bg-white">
       <header className="absolute inset-x-0 top-0 z-50">
@@ -151,12 +155,12 @@ export default function Home() {
               >
                 ค้นหา ผู้ช่วยเหลือ
               </Link>
-              <a
-                href="#"
+              <Link
+                to="/contact"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 สอบถามเพิ่มเติม <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

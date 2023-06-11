@@ -1,66 +1,55 @@
 import Navbar from "../../components/Navbar.jsx";
 export default function Review() {
-  const reviews = [
-    {
-      name: "sujit.....",
-      review: `“ขอบคุณ Platform ดีๆที่ช่วยให้
-    เราหาพยาบาลมาดูแลแม่เราได้ในวันที่เราไม่สะดวก
-    ช่วยชีวิตเรามากเลยนะคะ พัฒนาต่อไปนะคะ.”`,
-      avatra:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-  ];
-
   const posts = [
     {
       id: 1,
-      title: "Boost your conversion rate",
+      title: "ใช้บริการ พยาบาลเฝ้าไข้ช่วยได้เยอะเลยค่ะ",
       href: "#",
       description:
-        "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
+        "กลางคืนไม่มีคนช่วยเฝ้าไข้คุณยาย ได้ mecare ช่วยไว้เยอะเลย ขอบคุณเจ้าหน้าที่ทุกคนมากนะคะ",
       date: "Mar 16, 2020",
       datetime: "2020-03-16",
-      category: { title: "Marketing", href: "#" },
+      category: { title: "พยาบาลวิชาชีพ", href: "#" },
       author: {
-        name: "Michael Foster",
-        role: "Co-Founder / CTO",
+        name: "ลูกค้าประจำเลย",
+        role: "ลูกค้า",
         href: "#",
         imageUrl:
-          "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+          "https://hrod.ipst.ac.th/wp-content/uploads/2020/09/163001-feature-img-2-680x445.png",
       },
     },
     {
       id: 1,
-      title: "Boost your conversion rate",
+      title: "ขอบคุณในคุณภาพการบริการมากค่ะ",
       href: "#",
       description:
-        "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-      date: "Mar 16, 2020",
+        "ขอบคุณ careme มากที่ช่วยเหลือในเวลาที่ยากลำบาก เจ้าหน้าที่ดูแลคุณแม่ด้วยความอ่อนโยน คุณแม่ไว้ใจ ช่วยลดความยากลำบากของครอบครัวเรามากเลยค่ะ.",
+      date: "Mar 17, 2021",
       datetime: "2020-03-16",
-      category: { title: "Marketing", href: "#" },
+      category: { title: "ผู้ช่วยพยาบาล", href: "#" },
       author: {
-        name: "Michael Foster",
-        role: "Co-Founder / CTO",
+        name: "ลูกค้าใน กทม",
+        role: "ลูกค้า",
         href: "#",
         imageUrl:
-          "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+          "https://png.pngtree.com/thumb_back/fw800/background/20210909/pngtree-business-office-worker-white-collar-worker-smiling-at-work-image_836792.jpg",
       },
     },
     {
       id: 1,
-      title: "Boost your conversion rate",
+      title: "ใช้บริการดูแลผู้ป่วยติดเดียง",
       href: "#",
       description:
-        "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
+        "ใช้บริการดูแลผู้ป่วยติดเดียง กับทาง mecare ช่วยเหลือครอบครัวได้เยอะเลยค่ะ",
       date: "Mar 16, 2020",
       datetime: "2020-03-16",
-      category: { title: "Marketing", href: "#" },
+      category: { title: "ผู้ช่วยดูแล", href: "#" },
       author: {
-        name: "Michael Foster",
-        role: "Co-Founder / CTO",
+        name: "ขอบคุณจากใจ",
+        role: "ลูกค้า",
         href: "#",
         imageUrl:
-          "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+          "https://www.shutterstock.com/image-photo/proud-office-worker-posing-laughing-260nw-1028703628.jpg",
       },
     },
   ];
@@ -112,10 +101,10 @@ export default function Review() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              From the blog
+              รีวิวจากผู้ใช้บริการ
             </h2>
             <p className="mt-2 text-lg leading-8 text-gray-600">
-              Learn how to grow your business with our expert advice.
+              ตัวอย่าง รีวิวจากผู้ใช้บริการจริง
             </p>
           </div>
           <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
